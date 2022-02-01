@@ -1,0 +1,27 @@
+package com.ua.alevel.shop.config;
+
+import com.ua.alevel.shop.model.User;
+import com.ua.alevel.shop.repository.UserRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserPrincipalDetailService implements UserDetailsService {
+
+
+    private final UserRepository userRepository;
+
+    public UserPrincipalDetailService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        User user = userRepository.findByEmail(username);
+
+        return new UserPrincipal(user);
+    }
+}
