@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/")
 public class HomeController {
@@ -48,7 +50,7 @@ public class HomeController {
     }
 
     @PostMapping("signup")
-    public ModelAndView signUp(User user) {
+    public ModelAndView signUp(@Valid User user) {
         ModelAndView modelAndView = new ModelAndView("/index");
         userService.save(user);
         modelAndView.addObject("productList", productService.listProduct());

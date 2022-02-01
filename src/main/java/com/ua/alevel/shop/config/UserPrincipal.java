@@ -64,7 +64,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.getActive() == 1;
+        return user != null && user.getActive() == 1;
     }
 
 }
