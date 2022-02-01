@@ -51,7 +51,7 @@ public class HomeController {
 
     @PostMapping("signup")
     public ModelAndView signUp(@Valid User user) {
-        ModelAndView modelAndView = new ModelAndView("/index");
+        ModelAndView modelAndView = new ModelAndView("/index.html");
         userService.save(user);
         modelAndView.addObject("productList", productService.listProduct());
         modelAndView.addObject("categoryList", categoryService.listCategory());
