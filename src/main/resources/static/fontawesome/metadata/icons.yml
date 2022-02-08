@@ -5398,7 +5398,7 @@ dochub:
 docker:
   changes:
     - 5.0.0
-  label: Docker
+  label: Dockerfile
   search:
     terms: []
   styles:

@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+
+  logic:
+    image: node:12.4
+    command: npm --version
